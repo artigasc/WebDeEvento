@@ -1,0 +1,34 @@
+@import '../../../assets/css/_variables.scss';
+
+.container-date-new {
+  background-color: $color_orange_light;
+  padding: 4% 30px;
+  color: $color_white;
+  margin-top: -9%;
+}
+
+.container-news {
+  background-color: $color_lightgrey;
+  color: $color_grey;
+
+  .style-subtitle {
+    color: $color_grey;
+    padding-bottom: 20px;
+  }
+
+  .text-latest-new {
+    color: $color_orange_dark;
+    text-decoration: underline !important;
+  }
+
+  .text-contact {
+    color: $color_orange_dark;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .container-date-new {
+    margin-top: -16%;
+  }
+}

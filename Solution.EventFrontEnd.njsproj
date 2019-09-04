@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>Solution.EventFrontEnd</Name>
+    <RootNamespace>Solution.EventFrontEnd</RootNamespace>
+    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
+    <EnableTypeScript>true</EnableTypeScript>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <ToolsVersionPromptShown>0.0</ToolsVersionPromptShown>
+    <NameOfLastUsedPublishProfile>proExplo - FTP</NameOfLastUsedPublishProfile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>333e76d9-8058-464f-ad4b-8817ce9dc3f1</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>app.js</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <NodejsPort>1337</NodejsPort>
+    <StartWebBrowser>true</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app.js" />
+    <Compile Include="e2e\protractor.conf.js" />
+    <Compile Include="routes\index.js" />
+    <Compile Include="routes\users.js" />
+    <Compile Include="src\assets\js\site.js" />
+    <Compile Include="src\assets\js\site.min.js" />
+    <Compile Include="src\karma.conf.js" />
+    <Content Include=".editorconfig" />
+    <Content Include=".gitignore" />
+    <Content Include="angular.json" />
+    <Content Include="e2e\tsconfig.e2e.json" />
+    <Content Include="favicon-old.ico" />
+    <Content Include="package.json" />
+    <Content Include="src\app\admin\components\login\login.component.html" />
+    <Content Include="src\app\admin\components\login\login.component.scss" />
+    <Content Include="src\app\models\responseculqui.model.ts">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\assets\css\infinite-slider.css" />
+    <Content Include="src\assets\images\otros\logolundin.jpg" />
+    <Content Include="src\assets\images\otros\logonewmont.png" />
+    <Content Include="src\assets\images\otros\logonexa.png" />
+    <Content Include="src\assets\images\otros\logopoderosa.png" />
+    <Content Include="src\assets\images\otros\movinemarine1.png" />
+    <Content Include="src\assets\images\sponsors\logolundin.jpg" />
+    <Content Include="web.config">
+      <SubType>Code</SubType>
+    </Content>
+    <None Include="proExplo - Web Deploy.pubxml" />
+    <None Include="proExplo - FTP.pubxml" />
+    <Content Include="public\stylesheets\main.css" />
+    <Content Include="README.md" />
+    <Content Include="src\app\components\contact\contact.component.html" />
+    <Content Include="src\app\components\contact\contact.component.scss" />
+    <Content Include="src\app\components\exhibition\benefits\benefit.component.html" />
+    <Content Include="src\app\components\exhibition\benefits\benefit.component.scss" />
+    <Content Include="src\app\components\exhibition\exhibition.component.html" />
+    <Content Include="src\app\components\exhibition\exhibition.component.scss" />
+    <Content Include="src\app\components\exhibition\exhibitiondetails\exhibitiondetails.component.html" />
+    <Content Include="src\app\components\exhibition\exhibitiondetails\exhibitiondetails.component.scss" />
+    <Content Include="src\app\components\exhibitor\exhibitor.component.html" />
+    <Content Include="src\app\components\exhibitor\exhibitor.component.scss" />
+    <Content Include="src\app\components\home\home.component.html" />
+    <Content Include="src\app\components\home\home.component.scss" />
+    <Content Include="src\app\components\information\emergencyinfo\emergencyinfo.component.html" />
+    <Content Include="src\app\components\information\emergencyinfo\emergencyinfo.component.scss" />
+    <Content Include="src\app\components\information\upcomingevent.component.html" />
+    <Content Include="src\app\components\information\upcomingevent.component.scss" />
+    <Content Include="src\app\components\layout\app.component.html" />
+    <Content Include="src\app\components\layout\app.component.scss" />
+    <Content Include="src\app\components\location\location.component.html" />
+    <Content Include="src\app\components\location\location.component.scss" />
+    <Content Include="src\app\components\menu\menu.component.html" />
+    <Content Include="src\app\components\menu\menu.component.scss" />
+    <Content Include="src\app\components\presidentcard\presidentcard.component.html" />
+    <Content Include="src\app\components\presidentcard\presidentcard.component.scss" />
+    <Content Include="src\app\components\press\magazine\magazine.component.html" />
+    <Content Include="src\app\components\press\magazine\magazine.component.scss" />
+    <Content Include="src\app\components\press\mediapartner\mediapartner.component.html" />
+    <Content Include="src\app\components\press\mediapartner\mediapartner.component.scss" />
+    <Content Include="src\app\components\press\pressinterview\pressinterview.component.html" />
+    <Content Include="src\app\components\press\pressinterview\pressinterview.component.scss" />
+    <Content Include="src\app\components\press\pressnew.component.html" />
+    <Content Include="src\app\components\press\pressnew.component.scss" />
+    <Content Include="src\app\components\program\course\course.component.html" />
+    <Content Include="src\app\components\program\course\course.component.scss" />
+    <Content Include="src\app\components\program\program.component.html" />
+    <Content Include="src\app\components\program\program.component.scss" />
+    <Content Include="src\app\components\program\travel\travel.component.html" />
+    <Content Include="src\app\components\program\travel\travel.component.scss" />
+    <Content Include="src\app\components\reservation\reservation.component.html" />
+    <Content Include="src\app\components\reservation\reservation.component.scss" />
+    <Content Include="src\app\components\thematicsession\thematicsession.component.html" />
+    <Content Include="src\app\components\thematicsession\thematicsession.component.scss" />
+    <Content Include="src\app\components\sponsor\sponsor.component.html" />
+    <Content Include="src\app\components\sponsor\sponsor.component.scss" />
+    <Content Include="src\app\components\sponsor\strategicsponsor\strategicsponsors.component.html" />
+    <Content Include="src\app\components\sponsor\strategicsponsor\strategicsponsors.component.scss" />
+    <Content Include="src\app\models\course.model.ts">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\app\models\responseobject.model.ts">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\app\components\organizingcommittee\organizingcommittee.component.html" />
+    <Content Include="src\app\components\organizingcommittee\organizingcommittee.component.scss" />
+    <Content Include="src\assets\.gitkeep" />
+    <Content Include="src\assets\css\main.css" />
+    <Content Include="src\assets\css\site.css" />
+    <Content Include="src\assets\css\site.min.css" />
+    <Content Include="src\assets\css\_variables.scss">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="src\assets\favicon.ico" />
+    <Content Include="src\assets\iconos\facebook.png" />
+    <Content Include="src\assets\iconos\linkedin.png" />
+    <Content Include="src\assets\iconos\logo-iimp.svg" />
+    <Content Include="src\assets\iconos\logo-proexplo.png" />
+    <Content Include="src\assets\iconos\twitter.png" />
+    <Content Include="src\assets\iconos\youtube.png" />
+    <Content Include="src\assets\images\banner1.svg" />
+    <Content Include="src\assets\images\banner2.svg" />
+    <Content Include="src\assets\images\banner3.svg" />
+    <Content Include="src\assets\images\banner4.svg" />
+    <Content Include="src\assets\images\directory\andres-rompel.png" />
+    <Content Include="src\assets\images\directory\angel-campos.png" />
+    <Content Include="src\assets\images\directory\arnaldo-leon.png" />
+    <Content Include="src\assets\images\directory\BURSTEIN.jpg" />
+    <Content Include="src\assets\images\directory\CARDOZO.jpg" />
+    <Content Include="src\assets\images\directory\CASTANEDA.jpg" />
+    <Content Include="src\assets\images\directory\COBENAS.jpg" />
+    <Content Include="src\assets\images\directory\GARAY.jpg" />
+    <Content Include="src\assets\images\directory\GUTIERREZ.jpg" />
+    <Content Include="src\assets\images\directory\jose-arce.png" />
+    <Content Include="src\assets\images\directory\president.png" />
+    <Content Include="src\assets\images\directory\ROSAS.jpg" />
+    <Content Include="src\assets\images\directory\SAEZ.jpg" />
+    <Content Include="src\assets\images\directory\TANABE.jpg" />
+    <Content Include="src\assets\images\directory\victor-gobitz.png" />
+    <Content Include="src\assets\images\exhibition\stand.png" />
+    <Content Include="src\assets\images\exhibitors\B.Dold.png" />
+    <Content Include="src\assets\images\exhibitors\D.Cooke.png" />
+    <Content Include="src\assets\images\exhibitors\J.Thompson.jpg" />
+    <Content Include="src\assets\images\exhibitors\L.Fontbote.jpg" />
+    <Content Include="src\assets\images\exhibitors\L.Torro.jpg" />
+    <Content Include="src\assets\images\exhibitors\R.Lee.jpg" />
+    <Content Include="src\assets\images\header\group.png" />
+    <Content Include="src\assets\images\magazine\imagemagazine.PNG" />
+    <Content Include="src\assets\images\nextevents\iimp75.png" />
+    <Content Include="src\assets\images\nextevents\peruminlogo.png" />
+    <Content Include="src\assets\images\planes\map3x.png" />
+    <Content Include="src\assets\images\press\prenss-center.JPG" />
+    <Content Include="src\assets\images\slider\1.png" />
+    <Content Include="src\assets\images\speaker\1.png" />
+    <Content Include="src\assets\images\speaker\2.png" />
+    <Content Include="src\assets\images\speaker\3.png" />
+    <Content Include="src\assets\images\speaker\4.png" />
+    <Content Include="src\assets\images\speaker\B_Dold.png" />
+    <Content Include="src\assets\images\speaker\D_Cooke.png" />
+    <Content Include="src\assets\images\speaker\J_Thompson.jpg" />
+    <Content Include="src\assets\images\speaker\L_Fontbote.jpg" />
+    <Content Include="src\assets\images\speaker\L_Torro.jpg" />
+    <Content Include="src\assets\images\speaker\R_Lee.jpg" />
+    <Content Include="src\assets\images\sponsors\logobuenaventura.png" />
+    <Content Include="src\assets\images\sponsors\logoconfipetrol.png" />
+    <Content Include="src\assets\images\sponsors\logoexplomin.png" />
+    <Content Include="src\assets\images\sponsors\logogold.png" />
+    <Content Include="src\assets\images\sponsors\logohudbay.png" />
+    <Content Include="src\assets\images\sponsors\logonewmont.png" />
+    <Content Include="src\assets\images\sponsors\logonexa.png" />
+    <Content Include="src\assets\images\sponsors\logopenoles.png" />
+    <Content Include="src\assets\images\sponsors\logopoderosa.png" />
+    <Content Include="src\assets\images\sponsors\logosouthern.png" />
+    <Content Include="src\assets\images\sponsors\logosrk.png" />
+    <Content Include="src\assets\images\sponsors\movinemarine.png" />
+    <Content Include="src\assets\images\sponsors\strategic\CEGSlogo%403x.png" />
+    <Content Include="src\assets\images\sponsors\strategic\ingemmetlogo%403x.png" />
+    <Content Include="src\assets\images\sponsors\strategic\sgplogo%403x.png" />
+    <Content Include="src\browserslist" />
+    <Content Include="src\favicon.ico" />
+    <Content Include="src\index.html" />
+    <Content Include="src\styles.scss" />
+    <Content Include="src\tsconfig.app.json" />
+    <Content Include="src\tsconfig.spec.json" />
+    <Content Include="src\tslint.json" />
+    <Content Include="views\index.pug" />
+    <Content Include="views\layout.pug" />
+    <Content Include="views\error.pug" />
+    <Content Include="tsconfig.json" />
+    <Content Include="tslint.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="e2e\" />
+    <Folder Include="e2e\src\" />
+    <Folder Include="public\" />
+    <Folder Include="public\images\" />
+    <Folder Include="public\javascripts\" />
+    <Folder Include="public\stylesheets\" />
+    <Folder Include="routes\" />
+    <Folder Include="src\" />
+    <Folder Include="src\app\" />
+    <Folder Include="src\app\admin\components\" />
+    <Folder Include="src\app\admin\components\login\" />
+    <Folder Include="src\app\admin\models\" />
+    <Folder Include="src\app\admin\services\" />
+    <Folder Include="src\app\components\" />
+    <Folder Include="src\app\components\exhibition\" />
+    <Folder Include="src\app\components\exhibition\exhibitiondetails\" />
+    <Folder Include="src\app\components\exhibition\benefits\" />
+    <Folder Include="src\app\components\home\" />
+    <Folder Include="src\app\components\contact\" />
+    <Folder Include="src\app\components\exhibitor\" />
+    <Folder Include="src\app\components\location\" />
+    <Folder Include="src\app\components\reservation\" />
+    <Folder Include="src\app\components\thematicsession\" />
+    <Folder Include="src\app\components\program\course\" />
+    <Folder Include="src\app\components\information\emergencyinfo\" />
+    <Folder Include="src\app\components\layout\" />
+    <Folder Include="src\app\components\menu\" />
+    <Folder Include="src\app\components\information\" />
+    <Folder Include="src\app\components\press\" />
+    <Folder Include="src\app\components\presidentcard\" />
+    <Folder Include="src\app\components\press\mediapartner\" />
+    <Folder Include="src\app\components\press\magazine\" />
+    <Folder Include="src\app\components\press\pressinterview\" />
+    <Folder Include="src\app\components\program\" />
+    <Folder Include="src\app\components\program\travel\" />
+    <Folder Include="src\app\components\sponsor\" />
+    <Folder Include="src\app\components\sponsor\strategicsponsor\" />
+    <Folder Include="src\app\models\" />
+    <Folder Include="src\app\components\organizingcommittee\" />
+    <Folder Include="src\app\admin\" />
+    <Folder Include="src\app\services\" />
+    <Folder Include="src\assets\" />
+    <Folder Include="src\assets\css\" />
+    <Folder Include="src\assets\iconos\" />
+    <Folder Include="src\assets\images\" />
+    <Folder Include="src\assets\images\directory\" />
+    <Folder Include="src\assets\images\exhibition\" />
+    <Folder Include="src\assets\images\exhibitors\" />
+    <Folder Include="src\assets\images\header\" />
+    <Folder Include="src\assets\images\magazine\" />
+    <Folder Include="src\assets\images\nextevents\" />
+    <Folder Include="src\assets\images\otros\" />
+    <Folder Include="src\assets\images\planes\" />
+    <Folder Include="src\assets\images\press\" />
+    <Folder Include="src\assets\images\slider\" />
+    <Folder Include="src\assets\images\speaker\" />
+    <Folder Include="src\assets\images\sponsors\" />
+    <Folder Include="src\assets\images\sponsors\strategic\" />
+    <Folder Include="src\assets\js\" />
+    <Folder Include="src\environments\" />
+    <Folder Include="views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="e2e\src\app.e2e-spec.ts" />
+    <TypeScriptCompile Include="e2e\src\app.po.ts" />
+    <TypeScriptCompile Include="src\app\admin\components\login\login.component.ts" />
+    <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\components\contact\contact.component.ts" />
+    <TypeScriptCompile Include="src\app\components\exhibition\benefits\benefit.component.ts" />
+    <TypeScriptCompile Include="src\app\components\exhibition\exhibition.component.ts" />
+    <TypeScriptCompile Include="src\app\components\exhibition\exhibitiondetails\exhibitiondetails.component.ts" />
+    <TypeScriptCompile Include="src\app\components\exhibitor\exhibitor.component.ts" />
+    <TypeScriptCompile Include="src\app\components\home\home.component.ts" />
+    <TypeScriptCompile Include="src\app\components\information\emergencyinfo\emergencyinfo.component.ts" />
+    <TypeScriptCompile Include="src\app\components\information\upcomingevent.component.ts" />
+    <TypeScriptCompile Include="src\app\components\layout\app.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\components\layout\app.component.ts" />
+    <TypeScriptCompile Include="src\app\components\location\location.component.ts" />
+    <TypeScriptCompile Include="src\app\components\menu\menu.component.ts" />
+    <TypeScriptCompile Include="src\app\components\presidentcard\presidentcard.component.ts" />
+    <TypeScriptCompile Include="src\app\components\press\magazine\magazine.component.ts" />
+    <TypeScriptCompile Include="src\app\components\press\mediapartner\mediapartner.component.ts" />
+    <TypeScriptCompile Include="src\app\components\press\pressinterview\pressinterview.component.ts" />
+    <TypeScriptCompile Include="src\app\components\press\pressnew.component.ts" />
+    <TypeScriptCompile Include="src\app\components\program\course\course.component.ts" />
+    <TypeScriptCompile Include="src\app\components\program\program.component.ts" />
+    <TypeScriptCompile Include="src\app\components\program\travel\travel.component.ts" />
+    <TypeScriptCompile Include="src\app\components\reservation\reservation.component.ts" />
+    <TypeScriptCompile Include="src\app\components\thematicsession\thematicsession.component.ts" />
+    <TypeScriptCompile Include="src\app\components\sponsor\sponsor.component.ts" />
+    <TypeScriptCompile Include="src\app\components\sponsor\strategicsponsor\strategicsponsors.component.ts" />
+    <TypeScriptCompile Include="src\app\cust-ext-browser-xhr.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\global.module.ts" />
+    <TypeScriptCompile Include="src\app\models\benefits.model.ts" />
+    <TypeScriptCompile Include="src\app\models\contact.model.ts" />
+    <TypeScriptCompile Include="src\app\models\reservation.model.ts" />
+    <TypeScriptCompile Include="src\app\models\home.model.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\models\emergencyinfo.model.ts" />
+    <TypeScriptCompile Include="src\app\models\organization.model.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\models\nextevent.model.ts" />
+    <TypeScriptCompile Include="src\app\models\pressnotes.model.ts" />
+    <TypeScriptCompile Include="src\app\models\reservationview.model.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\models\sponsor.model.ts" />
+    <TypeScriptCompile Include="src\app\models\country.model.ts" />
+    <TypeScriptCompile Include="src\app\models\customer.model.ts" />
+    <TypeScriptCompile Include="src\app\models\department.model.ts" />
+    <TypeScriptCompile Include="src\app\models\district.model.ts" />
+    <TypeScriptCompile Include="src\app\models\characteristic.model.ts" />
+    <TypeScriptCompile Include="src\app\models\map.model.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\models\menu.model.ts" />
+    <TypeScriptCompile Include="src\app\models\nacionality.model.ts" />
+    <TypeScriptCompile Include="src\app\models\province.model.ts" />
+    <TypeScriptCompile Include="src\app\models\response.model.ts" />
+    <TypeScriptCompile Include="src\app\models\thematicsession.model.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\app\models\typedocument.model.ts" />
+    <TypeScriptCompile Include="src\app\components\organizingcommittee\organizingcommittee.component.ts" />
+    <TypeScriptCompile Include="src\app\services\event.service.ts" />
+    <TypeScriptCompile Include="src\app\services\hub.service.ts" />
+    <TypeScriptCompile Include="src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="src\environments\environment.ts" />
+    <TypeScriptCompile Include="src\main.ts" />
+    <TypeScriptCompile Include="src\polyfills.ts" />
+    <TypeScriptCompile Include="src\test.ts" />
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,682 @@
+
+<ng4-loading-spinner [threshold]="10000" [timeout]="20000" > </ng4-loading-spinner>
+<section class="container-hero">
+  <div class="container-fluid p-0 position-relative">
+    <img class="img-fluid hero w-100" [src]="inscriptionView?.EVENT?.urlbackgroundimg" alt="First slide">
+    <div class="div-center text-center">
+      <h1 class="text-white font-lg text-uppercase">{{inscriptionView?.EVENT?.activitytitle}}</h1>
+    </div>
+  </div>
+</section>
+
+  <section class="container-ficha div-diagonal">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <a [href]="inscriptionView?.EVENT?.fileurl">
+            <i class="fa fa-download mr-2"></i>
+            <h2 class="link-download font-lg-1 style-subtitle">
+              {{inscriptionView?.EVENT?.filetext}}
+            </h2>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--<button (click)="scroll(target)">aqui botyon</button>-->
+
+  <section class="container-personaldata div-diagonal">
+    <div class="container">
+      <div class="row">
+        <form>
+          <div class="col-md-12 text-left">
+            <h2 class="font-lg-1 style-subtitle">{{inscriptionView?.EVENT?.personalinformationins }}</h2>
+          </div>
+          <div class="col-md-12 text-left">
+            <br />
+          </div>
+          <div class="col-md-12">
+            <div class="form-row form-group">
+              <div class="col-md-12">
+                <div class="d-flex">
+                  <input type="text" name="firstname" id="firstname"
+                         [(ngModel)]="newCustomer.firstname"
+                         class="form-control"
+                         placeholder="Nombres"
+                         [ngModelOptions]="{standalone: true}" maxlength="50"
+                         (keyup)="setInfoToBillingName()"
+                         oninput="this.value = this.value.toUpperCase()">
+                  <label class="text-danger pl-1">*</label>
+                </div>
+                <div *ngIf="!firstnameValid" class="text-danger font-alert">
+                  Nombre requerido
+                </div>
+              </div>
+
+            </div>
+
+            <div class="form-row form-group">
+              <div class="col-md-6">
+                <div class="d-flex">
+                  <input type="text" name="lastname" id="lastname"
+                         [(ngModel)]="newCustomer.lastname" class="form-control"
+                         placeholder="Apellido paterno"
+                         [ngModelOptions]="{standalone: true}" maxlength="50"
+                         (keyup)="setInfoToBillingName()"
+                         oninput="this.value = this.value.toUpperCase()">
+                  <label class="text-danger pl-1">*</label>
+                </div>
+                <div *ngIf="!lastnameValid" class="text-danger font-alert">
+                  Apellido paterno requerido
+                </div>
+              </div>
+
+              <div class="col-md-6 mt">
+                <div class="d-flex">
+                  <input type="text" name="secondlastname" id="secondlastname"
+                         [(ngModel)]="newCustomer.secondlastname" class="form-control"
+                         placeholder="Apellido materno" [ngModelOptions]="{standalone: true}" maxlength="50"
+                         (keyup)="setInfoToBillingName()"
+                         oninput="this.value = this.value.toUpperCase()">
+                  <label class="text-danger pl-1">*</label>
+                </div>
+                <div *ngIf="!secondlastnameValid" class="text-danger font-alert">
+                  Apellido materno requerido
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row form-group">
+              <div class="col-md-6">
+                <div class="d-flex">
+                  <select name="identitynumbertype"
+                          id="selectDcumentType"
+                          class="form-control"
+                          [(ngModel)]="newCustomer.identitynumbertype"
+                          (change)="identityNumberTypeChange($event.target.value)"
+                          [disabled]="flagValidAssociatte"
+                          >
+                    <option *ngFor="let option of optionIdentityNumberType" [value]="option.strCode">{{ option.strName }}</option>
+                  </select>
+                  <label class="text-danger p-label"></label>
+                </div>
+              </div>
+
+              <div class="col-md-6 mt">
+                <div class="d-flex">
+                  <input type="text" class="form-control" name="identitynumber" id="identitynumber"
+                         [(ngModel)]="newCustomer.identitynumber"
+                         placeholder="Nº Documento"
+                         [maxLength]="documentLength" (keypress)="numberOnlyNroDoc($event)"
+                         (keyup)="setInfoToBillinIdentity()"
+                         (keydown.backspace)="numberOnlyNroDoc($event)" [disabled]="flagValidAssociatte"
+                         oninput="this.value = this.value.toUpperCase()">
+                  <label class="text-danger pl-1">*</label>
+                </div>
+                <div *ngIf="!identitynumberValid" class="text-danger font-alert">
+                  Número documento requerido
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row form-group">
+              <div class="col-md-6">
+                <div class="d-flex">
+                  <select name="nacionality"
+                          id="selectDcumentType"
+                          class="form-control"
+                          [(ngModel)]="newCustomer.nacionality"
+                          [disabled]="flagDisableNacionality"
+                          (change)="nationalityChange($event.target.value)" >
+                    <option *ngFor="let option of optionNacionality" [value]="option.value">{{ option.name }}</option>
+                  </select>
+                  <label class="text-danger p-label"></label>
+                </div>
+              </div>
+              <div class="col-md-6 mt">
+                <div class="d-flex">
+                  <input type="text" class="form-control"
+                         name="address" id="address"
+                         [(ngModel)]="newCustomer.address"
+                         placeholder="Dirección" maxlength="50"
+                         (keyup)="setInfoToBillingName()"
+                         oninput="this.value = this.value.toUpperCase()">
+                  <label class="text-danger pl-1">*</label>
+                </div>
+                <div *ngIf="!addressValid" class="text-danger font-alert">
+                  Dirección requerido
+                </div>
+              </div>
+
+            </div>
+            <div class="form-row form-group">
+              <div class="col-md-6">
+                <div class="d-flex">
+                  <select name="country"
+                          id="selectDcumentType"
+                          class="form-control"
+                          [(ngModel)]="newCustomer.country"
+                          (change)="countryChange($event.target.value)">
+                    <option *ngFor="let country of countries" [value]="country.strCode">{{ country.strName }}</option>
+                  </select>
+                  <label class="text-danger p-label"></label>
+                </div>
+              </div>
+              <div class="col-md-6 mt">
+                <div class="d-flex">
+                  <select name="department"
+                          id="selectDcumentType"
+                          class="form-control"
+                          [(ngModel)]="newCustomer.department"
+                          (change)="departmentChange($event.target.value,newCustomer.country)">
+                    <option *ngFor="let department of departments" [value]="department.strCode">{{ department.strName }}</option>
+                  </select>
+                  <label class="text-danger p-label"></label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row form-group">
+              <div class="col-md-6">
+                <div class="d-flex">
+                  <select name="province"
+                          id="selectDcumentType"
+                          class="form-control"
+                          [(ngModel)]="newCustomer.province"
+                          (change)="provinceChange($event.target.value,newCustomer.department,newCustomer.country)">
+                    <option *ngFor="let province of provinces" [value]="province.strCode">{{ province.strName }}</option>
+                  </select>
+                  <label class="text-danger p-label"></label>
+                </div>
+              </div>
+              <div class="col-md-6 mt">
+                <div class="d-flex">
+                  <select name="district"
+                          id="selectDcumentType"
+                          class="form-control"
+                          [(ngModel)]="newCustomer.district">
+                    <option *ngFor="let district of districts" [value]="district.strCode">{{ district.strName }}</option>
+                  </select>
+                  <label class="text-danger p-label"></label>
+                </div>
+              </div>
+            </div>
+            <div class="form-row form-group">
+              <div class="col-md-6">
+                <div class="d-flex">
+                  <input type="text" class="form-control" name="email" id="email" [(ngModel)]="newCustomer.email" placeholder="Email"
+                         pattern="[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,3}$"
+                         ngModel #emailref="ngModel"
+                         maxlength="50"
+                         oninput="this.value = this.value.toUpperCase()">
+                  <label class="text-danger pl-1">*</label>
+                </div>
+                <div *ngIf="emailref.errors &&(emailref.touched || emailref.dirty)" class="text-danger">
+                  <div class="font-alert" [hidden]="!emailref.errors?.pattern">
+                    Email incorrecto
+                  </div>
+                </div>
+                <div *ngIf="!emailValid" class="text-danger font-alert">
+                  Email requerido
+                </div>
+              </div>
+
+              <div class="col-md-6 mt">
+                <div class="d-flex">
+                  <input type="text" class="form-control" name="celular" id="celular"
+                         [(ngModel)]="newCustomer.celular"
+                         placeholder="Célular"
+                         maxlength="20" (keypress)="numberOnly($event)">
+                  <label class="text-danger pl-1">*</label>
+                </div>
+                <div *ngIf="!celularValid" class="text-danger font-alert">
+                  Celular requerido
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row form-group">
+              <div class="col-md-6">
+                <div class="d-flex">
+                  <input type="text" class="form-control" name="namecompany" id="namecompany"
+                         [(ngModel)]="newCustomer.namecompany"
+                         placeholder="Empresa" maxlength="50"
+                         oninput="this.value = this.value.toUpperCase()">
+                  <label class="text-danger pl-1">*</label>
+                </div>
+                <div *ngIf="!namecompanyValid" class="text-danger font-alert">
+                  Empresa requerido
+                </div>
+              </div>
+
+              <div class="col-md-6 mt">
+                <div class="d-flex">
+                  <input type="text" class="form-control" name="charge" id="charge"
+                         [(ngModel)]="newCustomer.charge" placeholder="Cargo" maxlength="60"
+                         oninput="this.value = this.value.toUpperCase()" (keyup)="setInfoToBillingName()">
+                  <label class="text-danger p-label"></label>
+                </div>
+              </div>
+            </div>
+
+            <br />
+
+          </div>
+
+          <div class="col-md-12 text-left">
+            <h2 class="title-inscription font-lg-1 style-subtitle">{{inscriptionView?.EVENT?.register}}</h2>
+          </div>
+          <div class="col-md-12">
+            <h4 class="text-capitalize">{{inscriptionView?.EVENT?.eventname}}</h4>
+          </div>
+          <div class="col-md-12">
+            <p class="text-capitalize">{{inscriptionView?.EVENT?.place}}</p>
+            <p class="text-capitalize">{{dateStr}}</p>
+          </div>
+
+          <div class="col-md-12">
+            <div class="link-reglamento"><a [href]="inscriptionView?.EVENT?.regulationurl" class="text-uppercase">{{inscriptionView?.EVENT?.regulation}}</a><i class="fa fa-arrow-circle-down mx-2" aria-hidden="true"></i></div>
+
+          </div>
+
+          <div class="col-md-12 pt-5 tabla">
+
+            <table align="center" valign="middle" width="100%">
+              <thead>
+                <tr>
+                  <th>
+                    <h3 class="m-0 p-0">{{inscriptionView?.EVENT?.rates}}</h3>
+                  </th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of inscriptionView?.ConceptPay;let i = index">
+                  <td valign="middle" width="25%">
+                    <p class="text-capitalize m-0">
+                      {{item.strnamecategory}}
+                    </p>
+                  </td>
+                  <td valign="middle" align="center" width="25%">
+                    <p class="text-capitalize m-0">
+                      <input id="{{i}}" type="radio" value="{{i+1}}" [(ngModel)]="newCustomer.typestr" (change)="validateFields(item)" name="typestr" [checked]="newCustomer.typestr==i">
+                      <label for="{{i}}"></label>
+                    </p>
+                  </td>
+                  <td *ngFor="let el of item.objDuration" valign="middle" width="25">
+                    <h6 class="text-capitalize">{{el.strname+ " "}}{{ el.dttdateto| date:'dd/MM/yyyy'}}</h6>
+                    <p class="text-capitalize">{{el.dblmount}}</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div *ngIf="!isAsocciatedWithDocument">
+                  <div class="form-group">
+                    <div class="d-flex">
+                      <div class="custom-file text-center">
+                        <input class="custom-file-input" type="file" id="file"
+                               name="file" (change)="onChangeFileAttachmentAssociated($event)">
+                        <label class="custom-file-label" for="file">Adjuntar archivo</label>
+                      </div>
+                      <span class="text-danger pl-1">*</span>
+                    </div>
+                    <div *ngIf="fileValidAssociated" class="text-danger text-left">
+                      Archivo requerido
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="col-md-6"></div>
+            </div>
+          </div>
+
+          <div class="conditions col-md-12 text-left pt-2 pb-2 my-5" *ngIf="inscriptionView?.objConditionRegister?.Array.length > 0">
+            <ng-container *ngFor="let item of inscriptionView?.objConditionRegister?.Array">
+              <label class="text-left text-white">{{item}}</label><br />
+            </ng-container>
+
+          </div>
+
+          <div class="col-md-12 text-left">
+            <h2 class="text-factura font-lg-1 style-subtitle text-uppercase"> {{inscriptionView?.EVENT?.billingtitle}}</h2>
+          </div>
+          <div class="row">
+            <div class="col-md-3 text-left mb-4">
+              <div class="col-md-12">
+                <p>
+                  <input type="radio" value="03" [(ngModel)]="newCustomer.billingtype" (change)="changeBillingType('03')" name="billingtype" id="boleta" checked>
+                  <label for="boleta">Boleta</label>
+                </p>
+                <p>
+                  <input type="radio" value="01" [(ngModel)]="newCustomer.billingtype" (change)="changeBillingType('01')" name="billingtype" id="factura">
+                  <label for="factura">Factura</label>
+                </p>
+              </div>
+            </div>
+            <div class="col-md-9 text-center mb-4">
+              <div class="form-group">
+                <select name="billingdocumenttype"
+                        id="selectDcumentType"
+                        class="form-control"
+                        [(ngModel)]="newCustomer.billingdocumenttype"
+                        (change)="identityBillingDocumentType($event.target.value)"
+                        [disabled]="flagBillingDocumentType">
+                  <option *ngFor="let option of optionBillingIdentityNumberType" [value]="option.strCode">{{ option.strName }}</option>
+                </select>
+
+              </div>
+              <div class="form-group d-flex">
+                <input type="text" class="form-control" name="billingidentity" id="billingidentity"
+                       [(ngModel)]="newCustomer.billingidentity" placeholder="Nº Documento" maxlength="50"
+                       (keypress)="numberOnly($event)"
+                        [disabled]="flagbillingidentity">
+                <label class="text-danger pl-1">*</label>
+                <div *ngIf="!billingidentityValid" class="text-danger text-left">
+                  Número de documento requerido
+                </div>
+              </div>
+              <div class="form-group d-flex">
+                <input type="text" class="form-control" name="billingname" id="billingname" [(ngModel)]="newCustomer.billingname" placeholder="Nombre o razón social" maxlength="150"
+                       oninput="this.value = this.value.toUpperCase()"
+                       [disabled]="flagbillingname">
+                <label class="text-danger pl-1">*</label>
+                <div *ngIf="!billingnameValid" class="text-danger text-left">
+                  Razón social requerido
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="d-flex">
+                  <input type="text" class="form-control" name="billingaddress" id="billingaddress" [(ngModel)]="newCustomer.billingaddress" placeholder="Dirección Fiscal" maxlength="100"
+                         oninput="this.value = this.value.toUpperCase()">
+                  <label class="text-danger pl-1">*</label>
+                </div>
+                <div *ngIf="!billingaddressValid" class="text-danger text-left font-alert">
+                  Dirección requerido
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="d-flex">
+                  <input type="text" class="form-control" name="billingcontactname" id="billingcontactname" [(ngModel)]="newCustomer.billingcontactname" placeholder="Persona Contacto" maxlength="50"
+                         oninput="this.value = this.value.toUpperCase()">
+                  <label class="text-danger pl-1">*</label>
+                </div>
+                <div *ngIf="!billingcontactnameValid" class="text-danger text-left font-alert">
+                  Nombre de contacto requerido
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="d-flex">
+                  <input type="text" class="form-control" name="billingcontactnumber" id="billingcontactnumber" [(ngModel)]="newCustomer.billingcontactnumber" placeholder="Teléfono Contacto" maxlength="20"
+                         (keypress)="numberOnly($event)" />
+                  <label class="text-danger pl-1">*</label>
+                </div>
+                <div *ngIf="!billingcontactnumberValid" class="text-danger text-left font-alert">
+                  Teléfono contacto requerido
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="d-flex">
+                  <input type="email" class="form-control" name="billingcontactemail"
+                         id="billingcontactemail"
+                         [(ngModel)]="newCustomer.billingcontactemail"
+                         placeholder="Email Contacto"
+                         maxlength="50"
+                         pattern="[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,3}$"
+                         ngModel #billingcontactemailref="ngModel"
+                         oninput="this.value = this.value.toUpperCase()">
+                  <label class="text-danger pl-1">*</label>
+                </div>
+                <div *ngIf="!billingcontactemailValid" class="text-danger text-left font-alert">
+                  Email contacto requerido
+                </div>
+                <div *ngIf="billingcontactemailref.errors &&(billingcontactemailref.touched || billingcontactemailref.dirty)" class="text-danger">
+                  <div [hidden]="!billingcontactemailref.errors?.pattern" class="text-left font-alert">
+                    Email incorrecto
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 text-left">
+              <br />
+              <h2 class="font-lg-1 style-subtitle">{{inscriptionView?.objBankInfo?.Name}}</h2>
+            </div>
+            <div class="col-md-6 text-left">
+              <div class="col-md-12">
+                <p>
+                  <input type="radio" value="1" [(ngModel)]="newCustomer.billingtmethodstr" name="billingtmethodstr" id="deposito">
+                  <label for="deposito">Depósito</label>
+                </p>
+                <p>
+                  <input type="radio" value="3" [(ngModel)]="newCustomer.billingtmethodstr" name="billingtmethodstr" id="transferencia">
+                  <label for="transferencia">Transferencia Bancaria</label>
+                </p>
+                <p>
+                  <input type="radio" value="2" [(ngModel)]="newCustomer.billingtmethodstr" name="billingtmethodstr" id="tarjeta">
+                  <label for="tarjeta">Tarjeta de Crédito</label>
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 text-center">
+              <p class="text-left i-file" *ngIf="inscriptionView?.objBankInfo?.Array.length > 0">
+                <ng-container *ngFor="let item of inscriptionView?.objBankInfo?.Array">
+                  {{item}}<br />
+                </ng-container>
+              </p>
+              <div *ngIf="newCustomer.billingtmethodstr != '2'">
+                <div class="form-group">
+                  <div class="d-flex">
+                    <div class="custom-file">
+                      <input type="file" id="file" class="custom-file-input"
+                             name="file" (change)="onFileChange($event)">
+                      <label class="custom-file-label" for="file">{{newCustomer.billingurldocument}}</label>
+                    </div>
+                    <span class="text-danger pl-1">*</span>
+                  </div>
+                  <div *ngIf="!fileValid" class="text-danger text-left font-alert">
+                    Archivo requerido
+                  </div>
+                </div>
+
+                <div class="col-md-5"></div>
+              </div>
+
+              <div *ngIf="newCustomer.billingtmethodstr == '2'">
+                <div class="form-group">
+                  <div class="d-flex">
+                    <input type="text" class="form-control" id="exampleCheck1" placeholder="Número de Tarjeta"
+                           [(ngModel)]="newCustomer.card_number" name="card_number" maxlength="16" size="16">
+                    <label class="text-danger pl-1">*</label>
+                  </div>
+                  <div *ngIf="!card_numberValid" class="text-danger text-left font-alert">
+                    Número de Tarjeta incorrecto
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="d-flex">
+                    <input type="text" class="form-control" id="exampleCheck1" placeholder="Nombre del Titular"
+                           [(ngModel)]="newCustomer.name" name="name" oninput="this.value = this.value.toUpperCase()">
+                    <label class="text-danger pl-1">*</label>
+                  </div>
+                  <div *ngIf="!nameValid" class="text-danger text-left font-alert">
+                    Nombre titular requerido
+                  </div>
+
+                  <br />
+                  <div class="col-md-7 p-0 d-flex">
+
+                    <div class="col-sm-3 p-0 mr-2">
+                      <div class="d-flex">
+                        <input type="text" (keypress)="numberOnly($event)" class="form-control form-control-input-MM w-100"
+                               placeholder="MM" maxlength="2" size="8"
+                               [(ngModel)]="newCustomer.expiration_month" name="expiration_month">
+                        <label class="text-danger pl-1">*</label>
+                      </div>
+                      <div *ngIf="!expiration_monthValid" class="text-danger text-left font-alert">
+                        <br /> Mes de vencimiento requerido
+                      </div>
+                    </div>
+
+                    <div class="col-sm-4 p-0 mr-2">
+                      <div class="d-flex">
+                        <input type="text" (keypress)="numberOnly($event)" class="form-control form-control-input-YYYY w-100"
+                               placeholder="AAAA" maxlength="4" size="4"
+                               [(ngModel)]="newCustomer.expiration_year" name="expiration_year">
+                        <label class="text-danger pl-1">*</label>
+                      </div>
+                      <div *ngIf="!expiration_yearValid" class="text-danger text-left font-alert">
+                        <br /> Año de vencimiento requerido
+                      </div>
+                    </div>
+
+                    <div class="col-sm-4 p-0">
+                      <div class="d-flex">
+                        <input type="text" (keypress)="numberOnly($event)"
+                               class="form-control form-control-input-CCV w-100"
+                               placeholder="CCV" maxlength="3" size="8"
+                               [(ngModel)]="newCustomer.cvv" name="cvv" />
+                        <label class="text-danger pl-1">*</label>
+                      </div>
+                      <div *ngIf="!cvvValid" class="text-danger text-left font-alert">
+                        <br /> CVV requerido
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                  <div class="col-md-7  w-100 p-0">
+                    <div class="form-group">
+                      <div class="d-flex">
+                        <input type="email" class="form-control" name="payemail"
+                               id="billingcontactemail"
+                               [(ngModel)]="newCustomer.payemail"
+                               placeholder="Email"
+                               maxlength="50"
+                               pattern="[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,3}$"
+                               ngModel #payemailref="ngModel"
+                               oninput="this.value = this.value.toUpperCase()">
+                        <label class="text-danger pl-1">*</label>
+                      </div>
+                      <div *ngIf="!payemailValid" class="text-danger text-left font-alert">
+                        Email requerido
+                      </div>
+                      <div *ngIf="payemailref.errors &&(payemailref.touched || payemailref.dirty)" class="text-danger">
+                        <div [hidden]="!payemailref.errors?.pattern" class="text-left font-alert">
+                          Email incorrecto
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-5"></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" (click)="addToEvent()" [disabled]="flagButtonSave" class="btn btn-orange pull-right text-white" style="margin-right: 0.7rem">Registrar</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-contact style-contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <br>
+          <h2 class="text-white pb-10 font-lg-1 style-subtitle">{{inscriptionView?.EVENT?.contacttitle}}</h2>
+          <br>
+        </div>
+        <div class="col-md-5">
+          <p class="text-white"><i class="fa fa-phone mr-2"></i> {{inscriptionView?.EVENT?.contactphone}}</p>
+          <p class="text-white"><i class="fa fa-envelope mr-2"></i> {{inscriptionView?.EVENT?.contact}}</p>
+          <p class="text-white"><i class="fa fa-map-marker mr-2"></i>{{inscriptionView?.EVENT?.contactplace}}</p>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+          <form>
+            <div class="form-row form-group">
+              <div class="col">
+
+                <input type="text" class="form-control" [placeholder]="inscriptionView?.EVENT?.placeholder.strName"
+                       [(ngModel)]="contact.name" name="name" oninput="this.value = this.value.toUpperCase()"
+                       [ngModelOptions]="{standalone: true}">
+                <div *ngIf="!namecontactValid" class="text-white text-left font-alert">
+                  Nombre requerido
+                </div>
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" [placeholder]="inscriptionView?.EVENT?.placeholder.strLastname"
+                       [(ngModel)]="contact.lastname" oninput="this.value = this.value.toUpperCase()"
+                       [ngModelOptions]="{standalone: true}">
+                <div *ngIf="!lastnamecontactValid" class="text-white text-left font-alert">
+                  Apellido requerido
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" id="exampleCheck1" [placeholder]="inscriptionView?.EVENT?.placeholder.strMail"
+                     [(ngModel)]="contact.email" maxlength="50"
+                     pattern="[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,3}$"
+                     ngModel #emailcontactref="ngModel"
+                     oninput="this.value = this.value.toUpperCase()" [ngModelOptions]="{standalone: true}" />
+              <div *ngIf="!emailcontactValid" class="text-white text-left font-alert">
+                Email requerido
+              </div>
+              <div *ngIf="emailcontactref.errors &&(emailcontactref.touched || emailcontactref.dirty)" class="text-danger">
+                <div [hidden]="!emailcontactref.errors?.pattern" class="text-white font-alert">
+                  Email incorrecto
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" id="exampleCheck1" [placeholder]="inscriptionView?.EVENT?.placeholder.strMessage"
+                        [(ngModel)]="contact.message" [ngModelOptions]="{standalone: true}"></textarea>
+              <div *ngIf="!messageValid" class="text-danger text-white font-alert">
+                Mensaje requerido
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" (click)="sendContactMail()" class="btn btn-orange pull-right text-white">{{inscriptionView?.EVENT?.contactbuttontxt}}</button>.
+            </div>
+            <br />
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container-map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1593.8016894548737!2d-77.03773071785413!3d-12.057471262670155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8c6d103eef1%3A0x21e996eeb5d06b7d!2sSheraton+Lima+Hotel+%26+Convention+Center!5e0!3m2!1ses-419!2spe!4v1536113402268" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </section>
+
+  <section class="container-social">
+    <div class="container">
+      <div class="col-md-12 text-center">
+
+        <a href="#" class="link-social">
+          <img class="icons-social" src="../assets/iconos/linkedin.png" alt="Linkedin">
+        </a>
+        <a href="#" class="link-social">
+          <img class="icons-social" src="../assets/iconos/facebook.png" alt="Linkedin">
+        </a>
+        <a href="#" class="link-social">
+          <img class="icons-social" src="../assets/iconos/youtube.png" alt="Linkedin">
+        </a>
+        <a href="#" class="link-social">
+          <img class="icons-social" src="../assets/iconos/twitter.png" alt="Linkedin">
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+
+
+
+<!--<div #target>Your target</div>-->

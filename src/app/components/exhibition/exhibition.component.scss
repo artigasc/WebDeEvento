@@ -1,0 +1,103 @@
+@import '../../../assets/css/_variables.scss';
+
+.container-ficha {
+  padding: 4% 30px;
+  i {
+    font-size: 40px;
+    color: $color_white;
+  }
+}
+.container-plane {
+  background-color: #ffffff;
+  color: $color_grey;
+
+  .style-subtitle {
+    font-weight: 600;
+  }
+  a {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .py {
+    padding: 6% 0;
+  }
+
+  .table-metrics {
+    td {
+      label {
+        font-weight: 600;
+        letter-spacing: -1px;
+      }
+    }
+  }
+
+  .table-metrics-2 {
+    width: 100%;
+    padding: 0;
+
+    td {
+      font-size: 30px;
+      padding: 10px 30px;
+
+      i {
+        font-size: 45px;
+      }
+
+      .icon-green {
+        color: $color_green;
+      }
+
+      .icon-orange {
+        color: $color_orange;
+      }
+
+      .icon-purple {
+        color: $color_purple;
+      }
+
+      .icon-yellow {
+        color: $color_yellow;
+      }
+
+      .icon-red {
+        color: $color_red;
+      }
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .container-plane {
+    h2 {
+      font-size: 25px;
+    }
+
+    .table-metrics-2 {
+      td {
+        font-size: 20px;
+        padding: 10px 30px;
+
+        i {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+  .container-contact {
+    h2 {
+      font-size: 25px!important;
+    }
+    p {
+      font-size: 17px;
+    }
+  }
+  .container-ficha {
+    i {
+      margin-left: 2%;
+    }
+  }
+ }

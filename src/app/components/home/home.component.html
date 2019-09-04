@@ -1,0 +1,720 @@
+
+<ng4-loading-spinner> </ng4-loading-spinner>
+<section class="container-hero">
+  <div class="container-fluid p-0">
+    <img class="img-fluid home w-100" [src]="homeInfo?.EVENT.mainimg" alt="First slide">
+    <div class="text-white text-right text-home">
+      <img class="img-fluid pb-10" src="/assets/iconos/logo-proexplo.png" alt="logo proexplo" />
+      <h5 class="text-right text-shadow">{{homeInfo?.EVENT.title}}</h5>
+      <h1 class="text-right text-shadow font-lg">{{homeInfo?.EVENT.description}}</h1>
+      <h3 class="text-right text-shadow">{{homeInfo?.EVENT.slogan}}</h3>
+    </div>
+  </div>
+</section>
+
+<section class="container-info div-diagonal">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 pb-4 d-flex justify-content-lg-start align-items-center">
+        <h3 class="text-white font-lg-2 m-0 text-center">{{homeInfo?.EVENT.dateStr}}<i class="fa fa-calendar text-white"></i></h3>
+      </div>
+      <div class="col-md-6 text-white pb-4">
+        <p class="text-left">{{homeInfo?.EVENT.aditionalinfo}} </p>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-5 text-white">
+        <div class="d-flex">
+          <i class="fa fa-map-marker pr-3"></i><p class="text-left">{{homeInfo?.EVENT.place}}</p>
+        </div>
+        <div class="d-flex">
+          <i class="fa fa-clock-o pr-3"></i><p class="text-left">{{homeInfo?.EVENT.hourStart+' - '+homeInfo?.EVENT.hourEnd}}</p>
+        </div>
+        <div class="text-right pr-4 pt-4">
+          <a class="btn btn-orange" href="/register" role="button">{{homeInfo?.EVENT.inscription}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container-speaker div-diagonal">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="pb-10 font-lg-1 style-subtitle">{{homeInfo?.EVENT.subtitlemagistral}}</h2>
+      </div>
+
+      <div class="col-md-12 py-4 px-0">
+
+        <div id="recipeCarousel" class="carousel slide pl-5 pr-5" data-ride="carousel" data-interval="3000">
+           <div class="carousel-inner " role="listbox">
+
+            <div class="carousel-item row active" *ngIf="homeInfo?.Master.length > 0">
+              <div class="col-3 float-left" *ngFor="let item of homeInfo?.Master| slice:0:4">
+
+                <div class="images-container">
+                  <div class="images">
+                    <div class="side">
+                      <img style="width: 23vw;  height: 23vw;" class="img-fluid img-responsive" [src]="exhibitorsUrl+item.urlphoto">
+                    </div>
+                    <div class="side back p-2  d-flex justify-content-center align-items-center flex-column">
+                        <h3 class="text-center text-white m-0">{{item.instruction}}</h3>
+                        <h3 class="text-center text-white m-0">{{item.firstname}}</h3>
+                        <h3 class="text-center text-white underline">{{item.secondname}}</h3>
+                        <h6 class="text-center text-white">{{item.company}}</h6>
+                        <h6 class="text-center text-white mb-3">{{item.description}}</h6>
+                        <a class="btn btn-orange text-white d-flex justify-content-center" role="button" href="#">PDF</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+              <div class="carousel-item row" *ngIf="homeInfo?.Master.length > 0">
+                <div class="col-3 float-left" *ngFor="let item of homeInfo?.Master| slice:4:4+4">
+                  <div class="images-container">
+                    <div class="images">
+                      <div class="side">
+                        <img style="width: 23vw;  height: 23vw;" class="img-fluid " [src]="exhibitorsUrl+item.urlphoto">
+                      </div>
+                      <div class="side back p-2 d-flex justify-content-center align-items-center flex-column">
+                          <h3 class="text-center text-white m-0">{{item.instruction}}</h3>
+                          <h3 class=" text-center text-white m-0">{{item.firstname}}</h3>
+                          <h3 class=" text-center text-white underline">{{item.secondname}}</h3>
+                          <h6 class="text-center text-white">{{item.company}}</h6>
+                          <h6 class="text-center text-white mb-3">{{item.description}}</h6>
+                          <a class="btn btn-orange text-white d-flex justify-content-center" role="button" href="#">PDF</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
+          <i class="fa fa-angle-left"></i>
+        </a>
+        <a class="carousel-control-next" href="#recipeCarousel" role="button" data-slide="next">
+          <i class="fa fa-angle-right"></i>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container-sesiones div-diagonal">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-white">
+        <h2 class="pb-10 text-uppercase mb-20 font-lg-1 style-subtitle">{{homeInfo?.objSessionInfo.title}}</h2>
+        <h5>{{homeInfo?.objSessionInfo.description}}</h5>
+      </div>
+      <div class="col-md-4 text-white my-4 sesiones d-flex" *ngFor="let item of homeInfo?.Sessions| slice:0:4">
+        <i class="fa fa-circle mr-2 mt-1"></i><label class="text-left">{{item.Name}}</label>
+      </div>
+
+      <div class="col-md-4 text-white my-4 sesiones d-flex" *ngFor="let item of homeInfo?.Sessions| slice:4:8">
+        <i class="fa fa-circle mr-2 mt-1"></i><label class="text-left">{{item.Name}}</label>
+      </div>
+      <div class="col-md-4 text-white my-4 sesiones d-flex" *ngFor="let item of homeInfo?.Sessions| slice:8:12">
+        <i class="fa fa-circle mr-2 mt-1"></i><label class="text-left">{{item.Name}}</label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container-magazine">
+  <img class="img-fluid crop" [src]="homeInfo?.EVENT.urlimgcenter" alt="Alternate Text" width="100%" />
+</section>
+
+<section class="container-program div-diagonal">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 d-flex align-items-center justify-content-between flex-wrap">
+        <h2 class="pb-10 style-subtitle text-white">{{homeInfo?.EVENT.program}}</h2>
+        <form class="form-inline my-2 my-lg-0 position-relative">
+          <input class="form-control mr-sm-2" type="search" aria-label="Search">
+          <i class="fa fa-search position-absolute"></i>
+        </form>
+      </div>
+      <div class="col-md-12">
+        <ul class="row nav nav-pills my-4" id="pills-tab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="pills-f1" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Fecha 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="pills-f2" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Fecha 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="pills-f3" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Fecha 3</a>
+          </li>
+        </ul>
+
+        <div class="tab-content text-white" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-f1">
+            <div class="row">
+              <div class="col-md-6">
+                <h5>SALA 1</h5>
+                <p class="text-left">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
+                <ul class="timeline">
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #1
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #2
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #3
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #4
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #5
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #6
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <h5>SALA 2</h5>
+                <p class="text-left">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
+                <ul class="timeline">
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #1
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #2
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #3
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #4
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #5
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #6
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="col-md-12 p-0">
+                <div class="timeline-break justify-content-start align-items-center">
+                  <span>11:30</span>
+                  <div class="w-100">
+                    <p>
+                      Lorem Ipsum has been the industry #1
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-6">
+                <ul class="timeline">
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #1
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="timeline">
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #1
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-f2">
+            <div class="row">
+              <div class="col-md-6">
+                <h5>SALA 1</h5>
+                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
+                <ul class="timeline">
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #1
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #2
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #3
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #4
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #5
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #6
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-f3">
+            <div class="row">
+              <div class="col-md-6">
+                <h5>SALA 1</h5>
+                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.</p>
+                <ul class="timeline">
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #1
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #2
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #3
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #4
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #5
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-content">
+                    <div id="accordion" role="tablist">
+                      <div class="mb-0">
+                        <span>8:30</span>
+                        <a class="collapsed text-white" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Lorem Ipsum has been the industry #6
+                        </a>
+                        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="container-speaker div-diagonal">
+
+  <div class="container py-4 ">
+    <div class="row">
+      <div class="col-md-12 mb-3">
+        <h2 class="pb-10 font-lg-1 style-subtitle">{{homeInfo?.EVENT.subtitlesponsor}}</h2>
+      </div>
+      <div class="text-center my-5">
+        <div class="row mx-auto my-auto">
+          <div class="carousel slide pl-5 pr-5" data-ride="carousel" data-interval="3000">
+            <div class="carousel-inner " role="listbox">
+              <div class="carousel-item row active" *ngIf="homeInfo?.Sponsors.length > 0">
+                <div class="col-3 float-left" *ngFor="let item of homeInfo?.Sponsors| slice:0:4">
+                  <img class="img-fluid img-responsive" [src]="'../assets/images/sponsors/'+item.urllogo">
+                </div>
+              </div>
+              <div class="carousel-item row" *ngIf="homeInfo?.Sponsors.length > 0">
+                <div class="col-3 float-left" *ngFor="let item of homeInfo?.Sponsors| slice:4:4+4">
+                  <img class="img-fluid" [src]="'../assets/images/sponsors/'+item.urllogo">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section class="container-contact style-contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <br>
+        <h2 class="text-white pb-10 font-lg-1 style-subtitle">{{homeInfo?.EVENT.contacttitle}}</h2>
+        <br>
+      </div>
+      <div class="col-md-5">
+        <p class="text-white"><i class="fa fa-phone mr-2"></i> {{homeInfo?.EVENT.contactphone}}</p>
+        <p class="text-white"><i class="fa fa-envelope mr-2"></i> {{homeInfo?.EVENT.contact}}</p>
+        <p class="text-white"><i class="fa fa-map-marker mr-2"></i>{{homeInfo?.EVENT.contactplace}}</p>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-6">
+        <form>
+          <div class="form-row form-group">
+            <div class="col-md-6">
+
+              <input type="text" class="form-control" [placeholder]="homeInfo?.EVENT?.placeholder?.strName"
+                     [(ngModel)]="contact.name" name="name" oninput="this.value = this.value.toUpperCase()"
+                     [ngModelOptions]="{standalone: true}">
+              <div *ngIf="!namecontactValid" class="text-white text-left font-alert">
+                Nombre requerido
+              </div>
+            </div>
+            <div class="col-md-6">
+              <input type="text" class="form-control mt" [placeholder]="homeInfo?.EVENT.placeholder.strLastname"
+                     [(ngModel)]="contact.lastname" oninput="this.value = this.value.toUpperCase()"
+                     [ngModelOptions]="{standalone: true}">
+              <div *ngIf="!lastnamecontactValid" class="text-white text-left font-alert">
+                Apellido requerido
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" id="exampleCheck1" [placeholder]="homeInfo?.EVENT.placeholder.strMail"
+                   [(ngModel)]="contact.email" maxlength="50"
+                   pattern="[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,3}$"
+                   ngModel #emailcontactref="ngModel"
+                   oninput="this.value = this.value.toUpperCase()" [ngModelOptions]="{standalone: true}" />
+            <div *ngIf="!emailcontactValid" class="text-white text-left font-alert">
+              Email requerido
+            </div>
+            <div *ngIf="emailcontactref.errors &&(emailcontactref.touched || emailcontactref.dirty)" class="text-white">
+              <div [hidden]="!emailcontactref.errors?.pattern" class="text-left font-alert">
+                Email inválido
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" id="exampleCheck1" [placeholder]="homeInfo?.EVENT.placeholder.strMessage"
+                      [(ngModel)]="contact.message" [ngModelOptions]="{standalone: true}"></textarea>
+            <div *ngIf="!messageValid" class="text-white text-left font-alert">
+              Mensaje requerido
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" (click)="sendContactMail()" class="btn btn-orange pull-right text-white">{{homeInfo?.EVENT.contactbuttontxt}}</button>.
+          </div>
+          <br />
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container-map">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1593.8016894548737!2d-77.03773071785413!3d-12.057471262670155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8c6d103eef1%3A0x21e996eeb5d06b7d!2sSheraton+Lima+Hotel+%26+Convention+Center!5e0!3m2!1ses-419!2spe!4v1536113402268" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+</section>
+
+<section class="container-social">
+  <div class="container">
+    <div class="col-md-12 text-center">
+
+      <a href="#" class="link-social">
+        <img class="icons-social" src="../assets/iconos/linkedin.png" alt="Linkedin">
+      </a>
+      <a href="#" class="link-social">
+        <img class="icons-social" src="../assets/iconos/facebook.png" alt="Linkedin">
+      </a>
+      <a href="#" class="link-social">
+        <img class="icons-social" src="../assets/iconos/youtube.png" alt="Linkedin">
+      </a>
+      <a href="#" class="link-social">
+        <img class="icons-social" src="../assets/iconos/twitter.png" alt="Linkedin">
+      </a>
+    </div>
+  </div>
+</section>

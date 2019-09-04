@@ -1,0 +1,36 @@
+@import '../../../assets/css/_variables.scss';
+
+.container-persons {
+  background-color: $color_lightgrey;
+  margin-top: -6%;
+  color: $color_grey;
+
+  .container {
+    .font-lg-1 {
+      padding-bottom: 17px;
+    }
+
+    p {
+      font-size: 22px;
+    }
+
+    .imgBox img {
+      -moz-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      -webkit-box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
+
+    .color-orange {
+      color: $color_orange_light;
+    }
+  }
+}
+
+.container-contact {
+  padding-top: 8%;
+}
+@media (max-width: 760px) {
+  .container-persons {
+    margin-top: -14%;
+  }
+}

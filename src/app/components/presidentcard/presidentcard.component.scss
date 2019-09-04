@@ -1,0 +1,30 @@
+@import '../../../assets/css/_variables.scss';
+
+.container-info {
+  background-color: $color_orange_light;
+  margin-top: -6%;
+
+  .container {
+    .font-lg-1 {
+      padding-bottom: 17px;
+    }
+
+    p {
+      font-size: 22px;
+    }
+  }
+}
+
+.container-persons {
+  background-color: $color_lightgrey;
+}
+
+.container-contact {
+  padding-top: 8%;
+}
+
+@media (max-width: 760px) {
+  .container-info {
+    margin-top: -14%;
+  }
+}

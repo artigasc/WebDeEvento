@@ -1,0 +1,181 @@
+<ng4-loading-spinner> </ng4-loading-spinner>
+<section class="container-hero">
+  <div class="container-fluid p-0 position-relative">
+    <img class="img-fluid hero w-100" [src]="mapView?.EVENT.urlbackgroundimg" alt="First slide">
+    <div class="div-center text-center">
+      <h1 class="text-white font-lg text-uppercase">{{mapView?.objMapInfo.title}}</h1>
+    </div>
+  </div>
+</section>
+<section class="container-ficha div-diagonal">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 pb-4">
+        <a [href]="mapView?.objMapInfo.pdfurl"><h2 class="font-lg-1 style-subtitle">{{mapView?.objMapInfo.pdfurltext}}<i class="fa fa-download pl-2"></i></h2></a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container-plane div-diagonal" style="margin-top: -6%;">
+    <div class="container">
+      <div class="col-md-12 text-left">
+        <h2 class="style-subtitle font-lg-1">{{mapView?.objMapInfo.subtitle}}</h2>
+      </div>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+          <img class="img-fluid" src="../assets/images/planes/map3x.png">
+        </div>
+        <div class="col-md-3 d-flex flex-column align-self-end align-items-center py-3">
+          <a class="btn btn-orange btn-lg" [href]="mapView?.objMapInfo.urlreglament" role="button">{{mapView?.objMapInfo.reglament}}</a>
+          <a class="btn btn-orange btn-lg" [href]="mapView?.objMapInfo.urlreserve" role="button">{{mapView?.objMapInfo.reserve}}</a>
+          <div class="col-md-12">
+            <table class="table-metrics">
+              <tbody>
+                <tr>
+                  <td><label for="Name" style="color: #ed8600;font-size: 14px;">{{mapView?.objMapInfo.legend}}</label></td>
+                  <td></td>
+                </tr>
+                <tr *ngFor="let item of mapView?.StandPrices">
+                  <td><div class="square-color-premiun square-size" [ngStyle]="{'background-color': item.Color}"></div></td>
+                  <td><label for="Name" class="label-premium text-uppercase" [ngStyle]="{'font-color': item.color}">{{item.Name}}</label><br /></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+      <div class="row py" *ngIf="mapView?.StandPrices.length > 0">
+        <div class="col-md-6 p-0" *ngFor="let item of mapView?.StandPrices">
+          <div class="col-md-12 square-color-premiun square-size-sponsors-plane text-center" [ngStyle]="{'background-color': item.Color}">
+            <h2 class="font-lg-1 text-white">{{item.Name}}</h2>
+          </div>
+          <div class="col-12 text-left p-0">
+            <table class="table-metrics-2" cellpadding="0" cellspacing="0" border="0">
+              <tbody>
+                <tr>
+                  <td>Empresa T</td>
+                  <td align="right"><i class="fa fa-angle-up icon-green"></i></td>
+                </tr>
+                <tr>
+                  <td>Empresa U</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Empresa V</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Empresa V</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Empresa X</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>Empresa Y</td>
+                  <td align="right"><i class="fa fa-angle-down icon-green"></i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="container-contact style-contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <br>
+          <h2 class="text-white pb-10 font-lg-1 style-subtitle">{{mapView?.EVENT.contacttitle}}</h2>
+          <br>
+        </div>
+        <div class="col-md-5">
+          <p class="text-white"><i class="fa fa-phone mr-2"></i> {{mapView?.EVENT.contactphone}}</p>
+          <p class="text-white"><i class="fa fa-envelope mr-2"></i> {{mapView?.EVENT.contact}}</p>
+          <p class="text-white"><i class="fa fa-map-marker mr-2"></i>{{mapView?.EVENT.contactplace}}</p>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+          <form>
+            <div class="form-row form-group">
+              <div class="col">
+
+                <input type="text" class="form-control" [placeholder]="mapView?.EVENT.placeholder.strName"
+                       [(ngModel)]="contact.name" name="name" oninput="this.value = this.value.toUpperCase()"
+                       [ngModelOptions]="{standalone: true}">
+                <div *ngIf="!namecontactValid" class="text-white text-left font-alert font-alert">
+                  Nombre requerido
+                </div>
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" [placeholder]="mapView?.EVENT.placeholder.strLastname"
+                       [(ngModel)]="contact.lastname" oninput="this.value = this.value.toUpperCase()"
+                       [ngModelOptions]="{standalone: true}">
+                <div *ngIf="!lastnamecontactValid" class="text-white text-left font-alert font-alert">
+                  Apellido requerido
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" id="exampleCheck1" [placeholder]="mapView?.EVENT.placeholder.strMail"
+                     [(ngModel)]="contact.email" maxlength="50"
+                     pattern="[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,3}$"
+                     ngModel #emailcontactref="ngModel"
+                     oninput="this.value = this.value.toUpperCase()" [ngModelOptions]="{standalone: true}" />
+              <div *ngIf="!emailcontactValid" class="text-white text-left font-alert font-alert">
+                Email requerido
+              </div>
+              <div *ngIf="emailcontactref.errors &&(emailcontactref.touched || emailcontactref.dirty)" class="text-white">
+                <div [hidden]="!emailcontactref.errors?.pattern" class="text-left font-alert font-alert">
+                  Email inválido
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" id="exampleCheck1" [placeholder]="mapView?.EVENT.placeholder.strMessage"
+                        [(ngModel)]="contact.message" [ngModelOptions]="{standalone: true}"></textarea>
+              <div *ngIf="!messageValid" class="text-white text-left font-alert font-alert">
+                Mensaje requerido
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="submit" (click)="sendContactMail()" class="btn btn-orange pull-right text-white">{{mapView?.EVENT.contactbuttontxt}}</button>.
+            </div>
+            <br />
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="container-map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1593.8016894548737!2d-77.03773071785413!3d-12.057471262670155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8c6d103eef1%3A0x21e996eeb5d06b7d!2sSheraton+Lima+Hotel+%26+Convention+Center!5e0!3m2!1ses-419!2spe!4v1536113402268" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+  </section>
+
+<section class="container-social">
+    <div class="container">
+      <div class="col-md-12 text-center">
+
+        <a href="#" class="link-social">
+          <img class="icons-social" src="../assets/iconos/linkedin.png" alt="Linkedin">
+        </a>
+        <a href="#" class="link-social">
+          <img class="icons-social" src="../assets/iconos/facebook.png" alt="Linkedin">
+        </a>
+        <a href="#" class="link-social">
+          <img class="icons-social" src="../assets/iconos/youtube.png" alt="Linkedin">
+        </a>
+        <a href="#" class="link-social">
+          <img class="icons-social" src="../assets/iconos/twitter.png" alt="Linkedin">
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+<!--<div #target>Your target</div>-->

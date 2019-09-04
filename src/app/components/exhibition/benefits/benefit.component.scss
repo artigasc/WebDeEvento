@@ -1,0 +1,13 @@
+@import '../../../../assets/css/_variables.scss';
+
+.container-exibition-benefits {
+  margin-top: -6%;
+  padding: 1rem 30px 2rem 30px;
+  color: $color_grey;
+}
+@media (max-width:760px) {
+  .container-exibition-benefits {
+    margin-top: -13%;
+    padding: 0 30px;
+  }
+}

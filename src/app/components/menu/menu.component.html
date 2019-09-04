@@ -1,0 +1,42 @@
+<ng4-loading-spinner> </ng4-loading-spinner>
+<nav class="navbar navbar-expand-lg navbar-dark text-white justify-content-center w-100">
+  <div class="container-fluid">
+    <a class="navbar-brand logo" href="#" routerLink="/">
+      <img src="/assets/iconos/logo-proexplo.png" class="img-fluid" alt="logo-iimp">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center align-items-center flex-column pt-2" id="navbarNavDropdown">
+      <ul class="navbar-nav font-wight-600  text-center justify-content-between w-100">
+        <li class="nav-item dropdown active" *ngFor="let menu of menuList">
+          <a class="nav-link dropdown-toggle" routerLink="{{menu.Url}}" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{menu.Name}}</a>
+          <div class="dropdown-menu" aria-labelledby="navbarWelcome" *ngIf="menu.Items.length > 0">
+            <div class="no-padding" *ngFor="let item of menu.Items">
+              <a class="dropdown-item text-white" routerLink="{{item.Url}}">{{item.Name}}</a>
+              <div class="dropdown-divider"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="d-flex flex-row justify-content-lg-end justify-content-center flats w-100">
+        <div class="nav-item mx-2">
+          <a href="#" (click)="changeCulturization('es')"><img src="/assets/iconos/flags/spain.svg" alt="Español" /></a>
+        </div>
+        <div class="nav-item mx-2">
+          <a href="#" (click)="changeCulturization('en')"><img src="/assets/iconos/flags/united-kingdom.svg" alt="Inglés" /></a>
+        </div>
+      </div>
+    </div>
+
+    <a class="navbar-brand m-0 logo" routerLink="/home">
+      <img src="/assets/iconos/logo-iimp.svg" class="d-inline-block align-top img-fluid " alt="logo iimp">
+    </a>
+
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

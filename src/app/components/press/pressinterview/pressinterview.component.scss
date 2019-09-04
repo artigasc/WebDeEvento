@@ -1,0 +1,19 @@
+@import '../../../../assets/css/_variables.scss';
+
+.container-date-new {
+  background-color: $color_orange_light;
+  margin-top: -6%;
+  padding: 3% 30px;
+  color: $color_white;
+  .font-lg-1 {
+    font-size: 30px;
+  }
+}
+
+.container-interview {
+  background-color: $color_lightgrey;
+
+  .style-subtitle::after {
+    width: 24%;
+  }
+}

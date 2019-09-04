@@ -1,0 +1,176 @@
+<section class="container-hero">
+  <div class="container-fluid p-0 position-relative">
+    <img class="img-fluid hero w-100" [src]="fieldTrip?.EVENT.urlbackgroundimg" alt="First slide">
+    <div class="div-center text-center">
+      <h1 class="text-white font-lg text-uppercase">{{fieldTrip?.EVENT.triptitle}}</h1>
+    </div>
+ </div>
+</section>
+
+<section class="container-event diagonal-lightgrey">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="font-lg-1 style-subtitle">{{fieldTrip?.EVENT.triptitle}}</h4>
+        <br />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <img class="img-fluid size-strategic-magazine w-100 mb-3" [src]="fieldTrip?.Trips[0].urllogo">
+      </div>
+      <div class="col-md-6">
+        <p class="text-left">
+          {{fieldTrip?.EVENT.coursesubtitle}}
+        </p>
+        <p class="text-left">
+          {{fieldTrip?.EVENT.coursedescription}}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--<section class="container-event div-diagonal" style=" margin-top: -6%;">
+  <div class="container pt-5" *ngIf="fieldTrip?.Trips.length > 0">
+    <div *ngFor="let item of fieldTrip?.Trips" class="mb-40">
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="font-lg-1 style-subtitle">{{item.name}}</h4>
+          <br />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <img class="img-fluid size-strategic-magazine w-100" [src]="item.urllogo">
+          <div class="row mt-10 px-1">
+            <div class="col-4"></div>
+            <div class="col-4">
+              <div class="enlace">
+                <div class="contenido">
+                  <a routerLink="/register">{{fieldTrip?.EVENT.register}}</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="enlace">
+                <div class="contenido">
+                  <a routerLink="{{item.urlfile}}">{{fieldTrip?.EVENT.moreinfo}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5 mt-10">
+          <p>
+            {{item.description}}
+          </p>
+          <p class="pt-2">
+            <i class="fa fa-calendar bullet-point mr-2"></i>{{" "+item.dateStr}}
+          </p>
+          <p class="pt-2">
+            <i class="fa fa-map-marker bullet-point mr-2"></i>{{item.place}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>-->
+
+<section class="container-contact style-contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <br>
+        <h2 class="text-white pb-10 font-lg-1 style-subtitle">{{fieldTrip?.EVENT.contacttitle}}</h2>
+        <br>
+      </div>
+      <div class="col-md-5">
+        <p class="text-white"><i class="fa fa-phone mr-2"></i> {{fieldTrip?.EVENT.contactphone}}</p>
+        <p class="text-white"><i class="fa fa-envelope mr-2"></i> {{fieldTrip?.EVENT.contact}}</p>
+        <p class="text-white"><i class="fa fa-map-marker mr-2"></i>{{fieldTrip?.EVENT.contactplace}}</p>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-6">
+        <form>
+          <div class="form-row form-group">
+            <div class="col">
+
+              <input type="text" class="form-control" [placeholder]="fieldTrip?.EVENT.placeholder.strName"
+                     [(ngModel)]="contact.name" name="name" oninput="this.value = this.value.toUpperCase()"
+                     [ngModelOptions]="{standalone: true}">
+              <div *ngIf="!namecontactValid" class="text-white text-left font-alert">
+                Nombre requerido
+              </div>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" [placeholder]="fieldTrip?.EVENT.placeholder.strLastname"
+                     [(ngModel)]="contact.lastname" oninput="this.value = this.value.toUpperCase()"
+                     [ngModelOptions]="{standalone: true}">
+              <div *ngIf="!lastnamecontactValid" class="text-white text-left font-alert">
+                Apellido requerido
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" id="exampleCheck1" [placeholder]="fieldTrip?.EVENT.placeholder.strMail"
+                   [(ngModel)]="contact.email" maxlength="50"
+                   pattern="[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,3}$"
+                   ngModel #emailcontactref="ngModel"
+                   oninput="this.value = this.value.toUpperCase()" [ngModelOptions]="{standalone: true}" />
+            <div *ngIf="!emailcontactValid" class="text-white text-left font-alert">
+              Email requerido
+            </div>
+            <div *ngIf="emailcontactref.errors &&(emailcontactref.touched || emailcontactref.dirty)" class="text-white">
+              <div [hidden]="!emailcontactref.errors?.pattern" class="text-left font-alert">
+                Email inválido
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" id="exampleCheck1" [placeholder]="fieldTrip?.EVENT.placeholder.strMessage"
+                      [(ngModel)]="contact.message" [ngModelOptions]="{standalone: true}"></textarea>
+            <div *ngIf="!messageValid" class="text-white text-left font-alert">
+              Mensaje requerido
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" (click)="sendContactMail()" class="btn btn-orange pull-right text-white">{{fieldTrip?.EVENT.contactbuttontxt}}</button>.
+          </div>
+          <br />
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container-map">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1593.8016894548737!2d-77.03773071785413!3d-12.057471262670155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8c6d103eef1%3A0x21e996eeb5d06b7d!2sSheraton+Lima+Hotel+%26+Convention+Center!5e0!3m2!1ses-419!2spe!4v1536113402268" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+</section>
+
+<section class="container-social">
+  <div class="container">
+    <div class="col-md-12 text-center">
+
+      <a href="#" class="link-social">
+        <img class="icons-social" src="../assets/iconos/linkedin.png" alt="Linkedin">
+      </a>
+      <a href="#" class="link-social">
+        <img class="icons-social" src="../assets/iconos/facebook.png" alt="Linkedin">
+      </a>
+      <a href="#" class="link-social">
+        <img class="icons-social" src="../assets/iconos/youtube.png" alt="Linkedin">
+      </a>
+      <a href="#" class="link-social">
+        <img class="icons-social" src="../assets/iconos/twitter.png" alt="Linkedin">
+      </a>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+<!--<div #target>Your target</div>-->

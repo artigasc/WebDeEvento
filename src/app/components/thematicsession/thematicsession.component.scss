@@ -1,0 +1,91 @@
+@import '../../../assets/css/_variables.scss';
+
+.container-sesiones {
+  background-color: $color_lightgrey;
+  margin-top: -6%;
+  padding-top: 4%;
+
+  .container {
+    color: $color_grey;
+
+    .style-subtitle::after {
+      border: 3px solid $color_orange_light;
+      color: $color_grey;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
+    }
+
+    .sesiones {
+      border-right: 2.5px solid #ed8600;
+      text-align: left;
+
+    }
+
+
+    i {
+      color: #ed8600;
+      font-size: 15px;
+    }
+  }
+}
+
+.container-contact {
+  background-color: #d55709;
+  margin-top: -4%;
+
+  .container {
+
+    .form-group {
+      .form-control {
+        border-radius: 10px;
+        background-color: $color_lightgrey;
+      }
+
+      .form-control::placeholder {
+        color: $color_orange_light;
+        font-size: 20px;
+      }
+
+      textarea {
+        resize: none;
+      }
+    }
+
+    .fa-phone {
+      font-size: 27px;
+    }
+
+    .fa-map-marker {
+      font-size: 30px;
+    }
+
+    .fa-envelope {
+      font-size: 23px;
+    }
+  }
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: -100%;
+  }
+}
+@media (max-width: 780px) {
+
+  .container-sesiones {
+    margin-top: -13%;
+    padding-top: 9%;
+
+    .sesiones {
+      border-right: none !important;
+      /*border-bottom: 2.5px solid #ed8600;*/
+    }
+  }
+}

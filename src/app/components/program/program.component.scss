@@ -1,0 +1,329 @@
+@import '../../../assets/css/_variables.scss';
+
+.style-subtitle {
+   text-transform: uppercase;
+}
+.container-ficha {
+  background-color: $color_orange_light;
+  padding: 4% 30px 1% 30px;
+
+  .container {
+    .font-lg-2 {
+      font-weight: 400;
+    }
+    i {
+      color: $color_white;
+      font-size: 35px;
+      display: inline-block;
+    }
+    .style-subtitle {
+      text-transform: none;
+    }
+  }
+}
+
+.container-personaldata {
+  background-color: $color_lightgrey;
+  color: $color_grey;
+
+  .container {
+    h2 {
+      color: $color_grey;
+    }
+
+    h3 {
+      color: $color_orange_light;
+      padding-bottom: 20px;
+    }
+
+    .form-group {
+      .form-control {
+        border: transparent;
+        border-radius: 10px;
+        -webkit-box-shadow: 10px 10px 10px -10px rgba(112,112,112,0.65);
+        -moz-box-shadow: 10px 10px 10px -10px rgba(112,112,112,0.65);
+        box-shadow: 10px 10px 10px -10px rgba(112,112,112,0.65);
+      }
+
+      .form-control::placeholder {
+        font-size: 17px;
+        color: $color_orange_light;
+      }
+
+      button {
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      .p-label {
+        padding: 0.3rem;
+      }
+    }
+
+    p {
+      color: $color_grey;
+      line-height: 1.1;
+    }
+
+    .link-reglamento {
+      color: $color_orange_light;
+      font-size: 25px;
+
+      a {
+        text-decoration: underline !important;
+        color: $color_orange_light;
+        vertical-align: text-bottom;
+      }
+
+      i {
+        font-size: 28px;
+      }
+    }
+
+    table {
+      .text-tarifa {
+        color: $color_orange_dark !important;
+      }
+
+      label {
+        padding-bottom: 1rem;
+      }
+    }
+
+    [type="radio"]:checked,
+    [type="radio"]:not(:checked) {
+      position: absolute;
+      left: -9999px;
+    }
+
+    [type="radio"]:checked + label,
+    [type="radio"]:not(:checked) + label {
+      position: relative;
+      padding-left: 28px;
+      cursor: pointer;
+      line-height: 20px;
+      display: inline-block;
+      color: #666;
+    }
+
+    [type="radio"]:checked + label:before,
+    [type="radio"]:not(:checked) + label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #ddd;
+      border-radius: 100%;
+      background: #fff;
+      -webkit-box-shadow: 4px 3px 14px -5px rgba(0,0,0,0.75);
+      -moz-box-shadow: 4px 3px 14px -5px rgba(0,0,0,0.75);
+      box-shadow: 4px 3px 14px -5px rgba(0,0,0,0.75);
+    }
+
+    [type="radio"]:checked + label:after,
+    [type="radio"]:not(:checked) + label:after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      background: #e05701;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      border-radius: 100%;
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+    }
+
+    [type="radio"]:not(:checked) + label:after {
+      opacity: 0;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+
+    [type="radio"]:checked + label:after {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+
+    button {
+      background-color: $color_orange_light;
+      width: 150px;
+    }
+
+    button:hover {
+      color: #fff;
+      background-color: #c82333;
+      border-color: #bd2130;
+    }
+
+    .custom-file {
+
+      .custom-file-input:focus, .custom-file-input:focus, input[type="file"],
+      input[type="file"]:focus {
+        outline: none !important;
+        border: 0 !important;
+      }
+
+      .custom-file-input:hover {
+      }
+
+      .custom-file-label, .custom-file-label:focus {
+        color: $color_orange_light;
+        background-color: transparent;
+        outline: none !important;
+        border: 1px solid $color_orange_light;
+      }
+
+      .custom-file-label::after {
+        color: #ffffff;
+        content: "Subir";
+        background-color: $color_orange_light;
+        border-left: 1px solid $color_orange_light;
+        border-radius: 0.25rem 0 0 0.25rem;
+        right: auto;
+        left: -1px;
+      }
+
+      p {
+        text-align: left;
+        color: $color_orange_dark;
+        font-size: 0.97rem;
+      }
+    }
+  }
+}
+
+.container-contact {
+  padding-top: 6%;
+  h2{
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 760px) {
+  .container-ficha {
+    margin-top: -13%;
+    .container {
+      i {
+        font-size: 0.95rem;
+      }
+      .pb-4 {
+        padding-bottom: 0 !important;
+      }
+
+      .link-download {
+        font-size: 16px !important;
+        padding-bottom: 7px !important;
+      }
+    }
+  }
+
+  .container-personaldata {
+    .container {
+      .subir {
+        padding: 5px 10px;
+        background: #f55d3e;
+        color: #fff;
+        border: 0px solid #fff;
+      }
+
+      .subir:hover {
+        color: #fff;
+        background: #f7cb15;
+      }
+
+      .tabla {
+        padding: 0;
+      }
+
+      table {
+        h3 {
+          font-size: 17px;
+        }
+      }
+
+      .form-group {
+        .mt {
+          margin-top: 15px;
+        }
+      }
+
+      h4 {
+        font-size: 18px !important;
+      }
+
+      .link-reglamento {
+        p, i {
+          font-size: 15px;
+        }
+      }
+
+      h6 {
+        font-size: 16px !important;
+      }
+
+      a {
+        font-size: 13px !important;
+      }
+
+      table {
+        h6 {
+          font-size: 10px !important;
+        }
+
+        p {
+          font-size: 13px;
+        }
+      }
+
+      [type="radio"]:checked + label,
+      [type="radio"]:not(:checked) + label {
+        position: relative;
+        padding-left: 28px;
+        cursor: pointer;
+        line-height: 20px;
+        display: inline-block;
+        color: #666;
+        margin-top: 10px;
+      }
+
+      [type="radio"]:checked + label:before,
+      [type="radio"]:not(:checked) + label:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 18px;
+        height: 18px;
+        border: 1px solid #ddd;
+        border-radius: 100%;
+        background: #fff;
+        -webkit-box-shadow: 4px 3px 14px -5px rgba(0,0,0,0.75);
+        -moz-box-shadow: 4px 3px 14px -5px rgba(0,0,0,0.75);
+        box-shadow: 4px 3px 14px -5px rgba(0,0,0,0.75);
+      }
+
+      [type="radio"]:checked + label:after,
+      [type="radio"]:not(:checked) + label:after {
+        content: '';
+        width: 10px;
+        height: 10px;
+        background: #e05701;
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        border-radius: 100%;
+        -webkit-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+      }
+
+      .conditions {
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

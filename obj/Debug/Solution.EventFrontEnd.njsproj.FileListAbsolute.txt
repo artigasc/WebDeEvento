@@ -1,0 +1,5 @@
+C:\PROYECTOS\IIMP-CMS-FRONT\Solution.EventFrontEnd\Solution.EventFrontEnd\obj\Debug\Solution.EventFrontEnd.njsprojAssemblyReference.cache
+C:\PROYECTOS\IIMP-CMS-FRONT\Solution.EventFrontEnd\Solution.EventFrontEnd\obj\Debug\Solution.EventFrontEnd.njsproj.CoreCompileInputs.cache
+C:\PROYECTOS\IIMP-CMS-FRONT\Solution.EventFrontEnd\Solution.EventFrontEnd\bin\Microsoft.NodejsTools.WebRole.dll
+D:\iimp-git\Event%20Hub%20Web\Solution.EventFrontEnd\Solution.EventFrontEnd\obj\Debug\Solution.EventFrontEnd.njsprojAssemblyReference.cache
+C:\projects\IIMP\Event%20Hub%20Web\Solution.EventFrontEnd\Solution.EventFrontEnd\obj\Debug\Solution.EventFrontEnd.njsprojAssemblyReference.cache
