@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Name>Solution.EventBackend</Name>
+    <RootNamespace>Solution.EventBackend</RootNamespace>
+    <LastActiveSolutionConfig>Release|Any CPU</LastActiveSolutionConfig>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <NameOfLastUsedPublishProfile>iimpservice - Web Deploy</NameOfLastUsedPublishProfile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>bc0e2657-51f8-460e-b045-60cd356350ca</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>app.js</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <NodejsPort>1337</NodejsPort>
+    <StartWebBrowser>True</StartWebBrowser>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app.js" />
+    <Compile Include="Controllers\BannerController.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\ContentController.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\CountryController.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\EventController.js" />
+    <Compile Include="Controllers\ExhibitorController.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\ConceptController.js" />
+    <Compile Include="Controllers\FormController.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\HallController.js" />
+    <Compile Include="Controllers\IncomingController.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\LanguageController.js" />
+    <Compile Include="Controllers\MasterController.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\MenuController.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\PaymentController.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controllers\CategoryController.js" />
+    <Compile Include="Controllers\SponsorController.js" />
+    <Compile Include="Controllers\CustomerController.js" />
+    <Compile Include="Controllers\UserController.js" />
+    <Compile Include="Helpers\mailingHelper.js" />
+    <Compile Include="Models\ConfigModel.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\CulqiHelper.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\EventModel.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\HubModel.js" />
+    <Compile Include="Routes\BannerRoute.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Routes\ContentRoute.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Routes\CountryRoute.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Routes\EventRoute.js" />
+    <Compile Include="Routes\ExhibitorRoute.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Routes\ConceptRoute.js" />
+    <Compile Include="Routes\Files.js" />
+    <Compile Include="Routes\FormRoute.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Routes\HallRoute.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Routes\IncomingRoute.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Routes\LanguageRoute.js" />
+    <Compile Include="Routes\MasterRoute.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Routes\MenuRoute.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Routes\PaymentRoute.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Routes\SponsorRoute.js" />
+    <Compile Include="Routes\Files.js" />
+    <Compile Include="Routes\CategoryRoute.js" />
+    <Compile Include="Routes\CustomerRoute.js" />
+    <Compile Include="Routes\UsersRoute.js" />
+    <Compile Include="Services\ActivityService.js" />
+    <Compile Include="Services\BannerService.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\ContentService.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\CountryService.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\EventService.js" />
+    <Compile Include="Services\ExhibitorService.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\IncomingService.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\MasterService.js" />
+    <Compile Include="Services\HallService.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\IIMPService.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\FormService.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\LanguageService.js" />
+    <Compile Include="Services\MenuService.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\PaymentService.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Services\ConceptService.js" />
+    <Compile Include="Services\CategoryService.js" />
+    <Compile Include="Services\PlaneService.js" />
+    <Compile Include="Services\SponsorService.js" />
+    <Compile Include="Services\CustomerService.js" />
+    <Compile Include="Services\GroupService.js" />
+    <Compile Include="Services\UserService.js" />
+    <Content Include="EmailTemplates\confirmationPayment.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="EmailTemplates\inscription.html" />
+    <Content Include="EmailTemplates\transfer.html" />
+    <Content Include="package.json" />
+    <Content Include="README.md" />
+    <Content Include="views\error.pug" />
+    <Content Include="views\index.pug" />
+    <Content Include="views\layout.pug" />
+    <Content Include="views\Map.html" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="EmailTemplates\" />
+    <Folder Include="Models\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Routes\" />
+    <Folder Include="Services\" />
+    <Folder Include="views\" />
+  </ItemGroup>
+  <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
